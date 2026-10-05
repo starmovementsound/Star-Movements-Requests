@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Tacel Christmas 2026 | Star Movements Sound</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  background:
+    radial-gradient(circle at top, #183b2a 0%, #07130d 45%, #030504 100%);
+  color: white;
+  padding: 24px 16px;
+}
+
+.container {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.brand {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.brand-small {
+  color: #d7b75b;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 10px 0 4px;
+  font-size: 32px;
+  line-height: 1.05;
+}
+
+.year {
+  color: #e2c266;
+}
+
+.subtitle {
+  color: #d3d3d3;
+  margin-top: 10px;
+  line-height: 1.5;
+}
+
+.card {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 22px;
+  padding: 22px;
+  box-shadow: 0 18px 45px rgba(0,0,0,0.35);
+  backdrop-filter: blur(10px);
+}
+
+.section-title {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0 0 18px;
+}
+
+.request-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.type-btn {
+  padding: 16px 8px;
+  border-radius: 14px;
+  border: 1px solid #555;
+  background: #151515;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.type-btn.active {
+  background: #d7b75b;
+  color: #111;
+  border-color: #f3d67b;
+}
+
+label {
+  display: block;
+  margin: 15px 0 7px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #eeeeee;
+}
+
+input {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #555;
+  border-radius: 12px;
+  background: #101010;
+  color: white;
+  font-size: 16px;
+  outline: none;
+}
+
+input:focus {
+  border-color: #d7b75b;
+}
+
+.submit-btn {
+  width: 100%;
+  margin-top: 22px;
+  padding: 16px;
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #e3c568, #b78b2e);
+  color: #111;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.submit-btn:disabled {
+  opacity: 0.6;
+}
+
+.message {
+  display: none;
+  text-align: center;
+  margin-top: 16px;
+  padding: 13px;
+  border-radius: 12px;
+}
+
+.success {
+  background: rgba(36, 150, 76, 0.22);
+  border: 1px solid #3a9c5b;
+}
+
+.error {
+  background: rgba(180, 40, 40, 0.22);
+  border: 1px solid #b84b4b;
+}
+
+.footer {
+  text-align: center;
+  color: #888;
+  font-size: 12px;
+  margin-top: 22px;
+}
+
+#tipScreen {
+  display: none;
+  text-align: center;
+}
+
+.tip-icon {
+  font-size: 45px;
+  margin-bottom: 8px;
+}
+
+.tip-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 22px 0 14px;
+}
+
+.tip-btn {
+  padding: 15px 5px;
+  border: 1px solid #d7b75b;
+  border-radius: 12px;
+  background: #171717;
+  color: #f0d47b;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.no-tip {
+  background: transparent;
+  color: #bbb;
+  border: none;
+  padding: 12px;
+  font-size: 14px;
+}
+
+.new-request {
+  margin-top: 18px;
+  background: #222;
+  color: white;
+  border: 1px solid #555;
+  padding: 13px 18px;
+  border-radius: 12px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="brand">
+    <div class="brand-small">Star Movements Sound Presents</div>
+    <h1>TACEL CHRISTMAS <span class="year">2026</span></h1>
+    <div class="subtitle">
+      Request your favourite song or sign up for karaoke.
+    </div>
+  </div>
+
+  <div class="card" id="requestCard">
+
+    <div class="section-title">What would you like to do?</div>
+
+    <div class="request-options">
+      <button
+        type="button"
+        class="type-btn active"
+        id="songBtn"
+        onclick="selectType('Song Request')">
+        🎵 Song Request
+      </button>
+
+      <button
+        type="button"
+        class="type-btn"
+        id="karaokeBtn"
+        onclick="selectType('Karaoke')">
+        🎤 Karaoke
+      </button>
+    </div>
+
+    <form id="requestForm">
+
+      <input
+        type="hidden"
+        id="requestType"
+        value="Song Request">
+
+      <label for="name">Your Name</label>
+      <input
+        id="name"
+        type="text"
+        placeholder="Enter your name"
+        required>
+
+      <label for="song">Song</label>
+      <input
+        id="song"
+        type="text"
+        placeholder="Song title"
+        required>
+
+      <label for="artist">Artist</label>
+      <input
+        id="artist"
+        type="text"
+        placeholder="Artist name"
+        required>
+
+      <button
+        class="submit-btn"
+        id="submitBtn"
+        type="submit">
+        Submit Request
+      </button>
+
+      <div id="successMessage" class="message success">
+        ✅ Request sent to DJ Prince Data!
+      </div>
+
+      <div id="errorMessage" class="message error">
+        Something went wrong. Please try again.
+      </div>
+
+    </form>
+  </div>
+
+
+  <div class="card" id="tipScreen">
+
+    <div class="tip-icon">🎧</div>
+
+    <h2>Request Received!</h2>
+
+    <p>
+      Your request has been sent to
+      <strong>DJ Prince Data</strong>.
+    </p>
+
+    <p>
+      Enjoying the vibes? You can leave an optional tip for the DJ.
+    </p>
+
+    <div class="tip-buttons">
+      <button class="tip-btn" type="button">$5</button>
+      <button class="tip-btn" type="button">$10</button>
+      <button class="tip-btn" type="button">$20</button>
+    </div>
+
+    <button
+      class="no-tip"
+      type="button"
+      onclick="finishRequest()">
+      Maybe next time
+    </button>
+
+    <br>
+
+    <button
+      class="new-request"
+      type="button"
+      onclick="newRequest()">
+      Make Another Request
+    </button>
+
+  </div>
+
+  <div class="footer">
+    STAR MOVEMENTS SOUND • DJ SERVICE
+  </div>
+
+</div>
+
+
+<script>
+
+const SCRIPT_URL =
+"https://script.google.com/macros/s/AKfycbxV4GN499sjVjV39Vbjto34UTTqkw0pOHSL85PU_wAZAWaaZ2VoEupuM11dwOnmi1C70Q/exec";
+
+
+function selectType(type) {
+
+  document.getElementById("requestType").value = type;
+
+  const songBtn = document.getElementById("songBtn");
+  const karaokeBtn = document.getElementById("karaokeBtn");
+
+  songBtn.classList.remove("active");
+  karaokeBtn.classList.remove("active");
+
+  if (type === "Song Request") {
+    songBtn.classList.add("active");
+  } else {
+    karaokeBtn.classList.add("active");
+  }
+}
+
+
+document
+  .getElementById("requestForm")
+  .addEventListener("submit", async function(event) {
+
+    event.preventDefault();
+
+    const submitBtn =
+      document.getElementById("submitBtn");
+
+    const successMessage =
+      document.getElementById("successMessage");
+
+    const errorMessage =
+      document.getElementById("errorMessage");
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Sending...";
+
+    successMessage.style.display = "none";
+    errorMessage.style.display = "none";
+
+    const requestData = {
+      requestType:
+        document.getElementById("requestType").value,
+
+      name:
+        document.getElementById("name").value.trim(),
+
+      song:
+        document.getElementById("song").value.trim(),
+
+      artist:
+        document.getElementById("artist").value.trim()
+    };
+
+    try {
+
+      await fetch(SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8"
+        },
+        body: JSON.stringify(requestData)
+      });
+
+      successMessage.style.display = "block";
+
+      setTimeout(function() {
+        document.getElementById("requestCard").style.display = "none";
+        document.getElementById("tipScreen").style.display = "block";
+      }, 700);
+
+    } catch (error) {
+
+      console.error(error);
+
+      errorMessage.style.display = "block";
+
+    } finally {
+
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Submit Request";
+
+    }
+
+  });
+
+
+function finishRequest() {
+  document.getElementById("tipScreen").innerHTML =
+    "<h2>🎄 Thank You!</h2><p>Enjoy the Tacel Christmas Party!</p>";
+}
+
+
+function newRequest() {
+
+  document.getElementById("requestForm").reset();
+
+  selectType("Song Request");
+
+  document.getElementById("successMessage").style.display = "none";
+
+  document.getElementById("tipScreen").style.display = "none";
+  document.getElementById("requestCard").style.display = "block";
+}
+
+</script>
+
+</body>
+</html>
