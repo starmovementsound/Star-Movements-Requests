@@ -101,7 +101,7 @@ label {
   margin: 15px 0 7px;
   font-size: 14px;
   font-weight: bold;
-  color: #eeeeee;
+  color: #eee;
 }
 
 input {
@@ -145,14 +145,15 @@ input:focus {
 }
 
 .success {
-  background: rgba(36, 150, 76, 0.22);
+  background: rgba(36,150,76,0.22);
   border: 1px solid #3a9c5b;
 }
 
 .error {
-  background: rgba(180, 40, 40, 0.22);
+  background: rgba(180,40,40,0.22);
   border: 1px solid #b84b4b;
 }
+
 
 /* TIP SCREEN */
 
@@ -174,7 +175,7 @@ input:focus {
 .received-text {
   font-size: 17px;
   line-height: 1.5;
-  color: #eeeeee;
+  color: #eee;
 }
 
 .tip-heading {
@@ -192,7 +193,7 @@ input:focus {
 
 .tip-buttons {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3,1fr);
   gap: 10px;
   margin: 22px 0 12px;
 }
@@ -239,7 +240,7 @@ input:focus {
 .new-request {
   width: 100%;
   margin-top: 10px;
-  background: linear-gradient(135deg, #e3c568, #b78b2e);
+  background: linear-gradient(135deg,#e3c568,#b78b2e);
   color: #111;
   border: none;
   padding: 16px 18px;
@@ -260,501 +261,548 @@ input:focus {
 </style>
 </head>
 
+
 <body>
 
 <div class="container">
 
-  <div class="brand">
-    <div class="brand-small">
-      Star Movements Sound Presents
-    </div>
+<div class="brand">
 
-    <h1>
-      TACEL CHRISTMAS
-      <span class="year">2026</span>
-    </h1>
-
-    <div class="subtitle">
-      Request your favourite song or sign up for karaoke.
-    </div>
+  <div class="brand-small">
+    Star Movements Sound Presents
   </div>
 
+  <h1>
+    TACEL CHRISTMAS
+    <span class="year">2026</span>
+  </h1>
 
-  <!-- REQUEST FORM -->
-
-  <div class="card" id="requestCard">
-
-    <div class="section-title">
-      What would you like to do?
-    </div>
-
-    <div class="request-options">
-
-      <button
-        type="button"
-        class="type-btn active"
-        id="songBtn"
-        onclick="selectType('Song Request')">
-        🎵 Song Request
-      </button>
-
-      <button
-        type="button"
-        class="type-btn"
-        id="karaokeBtn"
-        onclick="selectType('Karaoke')">
-        🎤 Karaoke
-      </button>
-
-    </div>
-
-
-    <form id="requestForm">
-
-      <input
-        type="hidden"
-        id="requestType"
-        value="Song Request">
-
-
-      <label for="name">
-        Your Name
-      </label>
-
-      <input
-        id="name"
-        type="text"
-        placeholder="Enter your name"
-        required>
-
-
-      <label for="song">
-        Song
-      </label>
-
-      <input
-        id="song"
-        type="text"
-        placeholder="Song title"
-        required>
-
-
-      <label for="artist">
-        Artist
-      </label>
-
-      <input
-        id="artist"
-        type="text"
-        placeholder="Artist name"
-        required>
-
-
-      <button
-        class="submit-btn"
-        id="submitBtn"
-        type="submit">
-        Submit Request
-      </button>
-
-
-      <div
-        id="successMessage"
-        class="message success">
-        ✅ Request sent to DJ Prince Data!
-      </div>
-
-
-      <div
-        id="errorMessage"
-        class="message error">
-        Something went wrong. Please try again.
-      </div>
-
-    </form>
-
-  </div>
-
-
-  <!-- REQUEST RECEIVED / TIP SCREEN -->
-
-  <div class="card" id="tipScreen">
-
-    <div class="tip-icon">
-      🎧
-    </div>
-
-    <h2>
-      Request Received!
-    </h2>
-
-    <p class="received-text">
-      Your request has been sent to
-      <strong>DJ Prince Data.</strong>
-    </p>
-
-    <h3 class="tip-heading">
-      ❤️ Enjoying the vibes?
-    </h3>
-
-    <p class="tip-note">
-      Show the DJ some love with an optional tip.
-    </p>
-
-
-    <div class="tip-buttons">
-
-      <button
-        class="tip-btn"
-        type="button"
-        onclick="openTip(5)">
-        $5
-      </button>
-
-      <button
-        class="tip-btn"
-        type="button"
-        onclick="openTip(10)">
-        $10
-      </button>
-
-      <button
-        class="tip-btn"
-        type="button"
-        onclick="openTip(20)">
-        $20
-      </button>
-
-    </div>
-
-
-    <button
-      class="custom-tip"
-      type="button"
-      onclick="openTip('custom')">
-      💳 Choose Your Own Amount
-    </button>
-
-
-    <button
-      class="no-tip"
-      type="button"
-      onclick="finishRequest()">
-      Maybe next time
-    </button>
-
-
-    <button
-      class="new-request"
-      type="button"
-      onclick="newRequest()">
-      🎵 Make Another Request
-    </button>
-
-  </div>
-
-
-  <div class="footer">
-    STAR MOVEMENTS SOUND • DJ SERVICE
+  <div class="subtitle">
+    Request your favourite song or sign up for karaoke.
   </div>
 
 </div>
 
 
+<!-- REQUEST FORM -->
+
+<div class="card" id="requestCard">
+
+<div class="section-title">
+  What would you like to do?
+</div>
+
+
+<div class="request-options">
+
+<button
+type="button"
+class="type-btn active"
+id="songBtn"
+onclick="selectType('Song Request')">
+🎵 Song Request
+</button>
+
+
+<button
+type="button"
+class="type-btn"
+id="karaokeBtn"
+onclick="selectType('Karaoke')">
+🎤 Karaoke
+</button>
+
+</div>
+
+
+<form id="requestForm">
+
+<input
+type="hidden"
+id="requestType"
+value="Song Request">
+
+
+<label for="name">
+Your Name
+</label>
+
+<input
+id="name"
+type="text"
+placeholder="Enter your name"
+required>
+
+
+<label for="song">
+Song
+</label>
+
+<input
+id="song"
+type="text"
+placeholder="Song title"
+required>
+
+
+<label for="artist">
+Artist
+</label>
+
+<input
+id="artist"
+type="text"
+placeholder="Artist name"
+required>
+
+
+<button
+class="submit-btn"
+id="submitBtn"
+type="submit">
+
+Submit Request
+
+</button>
+
+
+<div
+id="successMessage"
+class="message success">
+
+✅ Request sent to DJ Prince Data!
+
+</div>
+
+
+<div
+id="errorMessage"
+class="message error">
+
+Something went wrong. Please try again.
+
+</div>
+
+</form>
+
+</div>
+
+
+
+<!-- REQUEST RECEIVED -->
+
+<div class="card" id="tipScreen">
+
+<div class="tip-icon">
+🎧
+</div>
+
+<h2>
+Request Received!
+</h2>
+
+
+<p class="received-text">
+
+Your request has been sent to
+<strong>DJ Prince Data.</strong>
+
+</p>
+
+
+<h3 class="tip-heading">
+❤️ Enjoying the vibes?
+</h3>
+
+
+<p class="tip-note">
+
+Show the DJ some love with an optional tip.
+
+</p>
+
+
+<div class="tip-buttons">
+
+<button
+class="tip-btn"
+type="button"
+onclick="openTip(5)">
+$5
+</button>
+
+
+<button
+class="tip-btn"
+type="button"
+onclick="openTip(10)">
+$10
+</button>
+
+
+<button
+class="tip-btn"
+type="button"
+onclick="openTip(20)">
+$20
+</button>
+
+</div>
+
+
+<button
+class="custom-tip"
+type="button"
+onclick="openTip('custom')">
+
+💳 Choose Your Own Amount
+
+</button>
+
+
+<button
+class="no-tip"
+type="button"
+onclick="finishRequest()">
+
+Maybe next time
+
+</button>
+
+
+<button
+class="new-request"
+type="button"
+onclick="newRequest()">
+
+🎵 Make Another Request
+
+</button>
+
+</div>
+
+
+<div class="footer">
+
+STAR MOVEMENTS SOUND • DJ SERVICE
+
+</div>
+
+</div>
+
+
+
 <script>
 
-/*
-==================================================
-GOOGLE SHEET REQUEST CONNECTION
-==================================================
-*/
+
+/* GOOGLE SHEET */
 
 const SCRIPT_URL =
 "https://script.google.com/macros/s/AKfycbxV4GN499sjVjV39Vbjto34UTTqkw0pOHSL85PU_wAZAWaaZ2VoEupuM11dwOnmi1C70Q/exec";
 
 
-/*
-==================================================
-STRIPE TIP LINK
-==================================================
-
-When we have your Stripe Payment Link,
-replace ONLY the words below:
-
-PASTE_STRIPE_LINK_HERE
-
-Example:
-https://buy.stripe.com/xxxxxxxx
-
-Do NOT change anything else.
-*/
+/* STRIPE TIP LINK */
 
 const STRIPE_TIP_URL =
-"PASTE_STRIPE_LINK_HERE";
+"https://buy.stripe.com/14A7sM7xSaHD3jCbgU5gc00";
 
 
-/*
-==================================================
-SONG / KARAOKE SELECTION
-==================================================
-*/
+
+/* SONG / KARAOKE */
 
 function selectType(type) {
 
-  document.getElementById("requestType").value = type;
+document.getElementById("requestType").value = type;
 
-  const songBtn =
-    document.getElementById("songBtn");
+const songBtn =
+document.getElementById("songBtn");
 
-  const karaokeBtn =
-    document.getElementById("karaokeBtn");
+const karaokeBtn =
+document.getElementById("karaokeBtn");
 
-  songBtn.classList.remove("active");
-  karaokeBtn.classList.remove("active");
 
-  if (type === "Song Request") {
+songBtn.classList.remove("active");
 
-    songBtn.classList.add("active");
+karaokeBtn.classList.remove("active");
 
-  } else {
 
-    karaokeBtn.classList.add("active");
+if(type === "Song Request") {
 
-  }
+songBtn.classList.add("active");
+
+} else {
+
+karaokeBtn.classList.add("active");
+
+}
 
 }
 
 
-/*
-==================================================
-SUBMIT REQUEST
-==================================================
-*/
+
+/* SUBMIT REQUEST */
 
 document
-  .getElementById("requestForm")
-  .addEventListener(
-    "submit",
-    async function(event) {
+.getElementById("requestForm")
+.addEventListener(
+"submit",
+async function(event) {
 
-      event.preventDefault();
-
-      const submitBtn =
-        document.getElementById("submitBtn");
-
-      const successMessage =
-        document.getElementById("successMessage");
-
-      const errorMessage =
-        document.getElementById("errorMessage");
+event.preventDefault();
 
 
-      submitBtn.disabled = true;
-      submitBtn.textContent = "Sending...";
+const submitBtn =
+document.getElementById("submitBtn");
 
-      successMessage.style.display = "none";
-      errorMessage.style.display = "none";
+const successMessage =
+document.getElementById("successMessage");
 
-
-      const requestData = {
-
-        requestType:
-          document
-            .getElementById("requestType")
-            .value,
-
-        name:
-          document
-            .getElementById("name")
-            .value
-            .trim(),
-
-        song:
-          document
-            .getElementById("song")
-            .value
-            .trim(),
-
-        artist:
-          document
-            .getElementById("artist")
-            .value
-            .trim()
-
-      };
+const errorMessage =
+document.getElementById("errorMessage");
 
 
-      try {
+submitBtn.disabled = true;
 
-        await fetch(
-          SCRIPT_URL,
-          {
-            method: "POST",
-
-            mode: "no-cors",
-
-            headers: {
-              "Content-Type":
-                "text/plain;charset=utf-8"
-            },
-
-            body:
-              JSON.stringify(requestData)
-          }
-        );
+submitBtn.textContent =
+"Sending...";
 
 
-        successMessage.style.display = "block";
+successMessage.style.display =
+"none";
+
+errorMessage.style.display =
+"none";
 
 
-        setTimeout(
-          function() {
+const requestData = {
 
-            document
-              .getElementById("requestCard")
-              .style.display = "none";
+requestType:
+document
+.getElementById("requestType")
+.value,
 
-            document
-              .getElementById("tipScreen")
-              .style.display = "block";
+name:
+document
+.getElementById("name")
+.value
+.trim(),
 
-            window.scrollTo({
-              top: 0,
-              behavior: "smooth"
-            });
+song:
+document
+.getElementById("song")
+.value
+.trim(),
 
-          },
-          650
-        );
+artist:
+document
+.getElementById("artist")
+.value
+.trim()
 
-
-      } catch (error) {
-
-        console.error(error);
-
-        errorMessage.style.display = "block";
-
-
-      } finally {
-
-        submitBtn.disabled = false;
-
-        submitBtn.textContent =
-          "Submit Request";
-
-      }
-
-    }
-  );
+};
 
 
-/*
-==================================================
-STRIPE TIP
-==================================================
-*/
+try {
+
+
+await fetch(
+
+SCRIPT_URL,
+
+{
+
+method: "POST",
+
+mode: "no-cors",
+
+headers: {
+
+"Content-Type":
+"text/plain;charset=utf-8"
+
+},
+
+body:
+JSON.stringify(requestData)
+
+}
+
+);
+
+
+successMessage.style.display =
+"block";
+
+
+setTimeout(
+
+function() {
+
+
+document
+.getElementById("requestCard")
+.style.display =
+"none";
+
+
+document
+.getElementById("tipScreen")
+.style.display =
+"block";
+
+
+window.scrollTo({
+
+top: 0,
+
+behavior: "smooth"
+
+});
+
+
+},
+
+650
+
+);
+
+
+}
+
+catch(error) {
+
+
+console.error(error);
+
+
+errorMessage.style.display =
+"block";
+
+
+}
+
+finally {
+
+
+submitBtn.disabled =
+false;
+
+
+submitBtn.textContent =
+"Submit Request";
+
+
+}
+
+}
+
+);
+
+
+
+/* STRIPE TIP */
 
 function openTip(amount) {
 
-  if (
-    !STRIPE_TIP_URL ||
-    STRIPE_TIP_URL === "PASTE_STRIPE_LINK_HERE"
-  ) {
-
-    alert(
-      "Stripe tipping is being connected. Your song request has already been received."
-    );
-
-    return;
-
-  }
-
-  /*
-  The same Stripe tip page is used for
-  $5, $10, $20 and custom tips.
-
-  The guest can choose/adjust the final
-  amount securely on Stripe.
-  */
-
-  window.open(
-    STRIPE_TIP_URL,
-    "_blank"
-  );
+window.open(
+STRIPE_TIP_URL,
+"_blank"
+);
 
 }
 
 
-/*
-==================================================
-MAYBE NEXT TIME
-==================================================
-*/
+
+/* MAYBE NEXT TIME */
 
 function finishRequest() {
 
-  document.getElementById("tipScreen").innerHTML = `
 
-    <div class="tip-icon">
-      🎄
-    </div>
+document
+.getElementById("tipScreen")
+.innerHTML = `
 
-    <h2>
-      Thank You!
-    </h2>
 
-    <p class="received-text">
-      Enjoy the Tacel Christmas Party!
-    </p>
+<div class="tip-icon">
+🎄
+</div>
 
-    <button
-      class="new-request"
-      type="button"
-      onclick="location.reload()">
 
-      🎵 Make Another Request
+<h2>
+Thank You!
+</h2>
 
-    </button>
 
-  `;
+<p class="received-text">
+
+Enjoy the Tacel Christmas Party!
+
+</p>
+
+
+<button
+class="new-request"
+type="button"
+onclick="location.reload()">
+
+🎵 Make Another Request
+
+</button>
+
+
+`;
 
 }
 
 
-/*
-==================================================
-MAKE ANOTHER REQUEST
-==================================================
-*/
+
+/* MAKE ANOTHER REQUEST */
 
 function newRequest() {
 
-  document
-    .getElementById("requestForm")
-    .reset();
 
-  selectType("Song Request");
+document
+.getElementById("requestForm")
+.reset();
 
-  document
-    .getElementById("successMessage")
-    .style.display = "none";
 
-  document
-    .getElementById("errorMessage")
-    .style.display = "none";
+selectType(
+"Song Request"
+);
 
-  document
-    .getElementById("tipScreen")
-    .style.display = "none";
 
-  document
-    .getElementById("requestCard")
-    .style.display = "block";
+document
+.getElementById("successMessage")
+.style.display =
+"none";
 
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
+
+document
+.getElementById("errorMessage")
+.style.display =
+"none";
+
+
+document
+.getElementById("tipScreen")
+.style.display =
+"none";
+
+
+document
+.getElementById("requestCard")
+.style.display =
+"block";
+
+
+window.scrollTo({
+
+top: 0,
+
+behavior: "smooth"
+
+});
+
 
 }
 
